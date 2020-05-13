@@ -13,21 +13,54 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Public">
+      <UniqueIdentifier>{54b1fe51-a04c-416f-88b3-73bcc09b68f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public\D3D">
+      <UniqueIdentifier>{654003ce-d8db-43e0-a9df-6fe00e80671f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private">
+      <UniqueIdentifier>{5cd68ca8-c673-416f-9284-68a4f8047c25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\D3D">
+      <UniqueIdentifier>{c1201e86-7999-40a7-8302-aa916860b930}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ImGui">
+      <UniqueIdentifier>{a740d1ec-ffa8-4e77-ab69-31bbd41c59a7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="pch.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Private\D3D\DX9.cpp">
+      <Filter>Private\D3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\imgui\imgui.cpp">
+      <Filter>Source Files\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\imgui\imgui_draw.cpp">
+      <Filter>Source Files\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\imgui\imgui_widgets.cpp">
+      <Filter>Source Files\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\imgui\examples\imgui_impl_dx9.cpp">
+      <Filter>Source Files\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\imgui\examples\imgui_impl_win32.cpp">
+      <Filter>Source Files\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\imgui\imgui_demo.cpp">
+      <Filter>Source Files\ImGui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pch.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="offsets.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\D3D\DX9.h">
+      <Filter>Public\D3D</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

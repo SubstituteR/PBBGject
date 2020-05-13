@@ -1,7 +1,8 @@
 #pragma once
-#include "pch.h"
 #include <thread>
+#include <Windows.h>
 #include "offsets.h"
+#include "Public/D3D/DX9.h"
 
 #define TOTAL_CHARACTERS 0x10
 #define PALETTES_PER_SET 0x8
@@ -146,7 +147,8 @@ __declspec(naked) void characterSelectHack()
 
 void run()
 {
-    base = (int)GetModuleHandle(NULL);;
+    Sleep(1500); //sleep 5 seconds to allow for the program to start.
+    base = (int)GetModuleHandle(NULL);
 
     writeOPByte(0x10839, 101); //max colors
     writeOPByte(0x10823, 100); //go from 0 to upper limit
@@ -163,6 +165,9 @@ void run()
     ZeroMemory(palettes, TOTAL_MEM); //init memory
 
     for (int i = 0; i < TOTAL_MEM; i++) { ((char*)palettes)[i] = rand(); } //FOR DEBUG -> write random color data...
+
+    DX9::Initialize();
+
     while (true) { injectPalettes(); } //filthy hack, surely there's a better way?
 }
 
@@ -180,6 +185,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
     case DLL_PROCESS_ATTACH:
         DisableThreadLibraryCalls(hModule);
         createConsole();
+        
         std::thread(run).detach();
         break;
     case DLL_THREAD_ATTACH:
